@@ -1,17 +1,38 @@
 package conta;
 
-import java.util.Scanner;
 
 import conta.util.Cores;
 
+import java.util.Scanner;
+
+import conta.model.ContaCorrente;
+
+import conta.model.ContaPoupanca;
+
 public class Menu {
 
+	public static Scanner leia = new Scanner(System.in);
+	
+	
 	public static void main(String[] args) {
+	
+	    int opcao;
 		
-		Scanner leia = new Scanner(System.in);
+    	ContaCorrente cc1 = new ContaCorrente(1, 123, 1, "Claudio Agusto", 0.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
 		
-		int opcao;
+		ContaPoupanca cp1 = new ContaPoupanca(2, 123, 2, "Lucas Morais", 100000.0f, 15);
+		cp1.visualizar();
+        cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
 		
+
 		while (true) {
 			     
 			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
@@ -38,7 +59,7 @@ public class Menu {
 			
 			opcao = leia.nextInt();
 	        
-			if (opcao == 9) {
+			if(opcao == 9) {
 	        	 System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu futuro comeca aqui!");
 	        	 sobre();
 	        	 
@@ -84,16 +105,25 @@ public class Menu {
 				break;
 		}
 	      
-    }	
-		
-}
-		public static void sobre() {
-			System.out.println("\n*********************************************************");
+      }
+
+    }
+
+	
+            public static void sobre() {
+	        System.out.println("\n*********************************************************");
 			System.out.println("Projeto Desenvolvido por: ");
 			System.out.println("Generation Brasil - generation@generation.org");
 			System.out.println("github.com/conteudoGeneration");
 			System.out.println("*********************************************************");
 		
 		}
-}
+ 
+    } 
+
+  
+ 
+	
+
+
 		
